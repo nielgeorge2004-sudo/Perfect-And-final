@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Designer // 2026 Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+    <canvas id="webgl-bg"></canvas>
+
+    <nav class="navbar navbar-dark fixed-top px-5 py-3">
+        <a class="navbar-brand mono" href="#"> HOME</a>
+        <div class="ms-auto d-flex gap-5">
+            <a href="#about" class="nav-link label text-white mono p-0">About Me</a>
+            <a href="#contact" class="nav-link label text-white mono p-0">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="parallax-layer" data-speed="-100">
+            <span class="tag">NIEL GEORGE</span>
+            <h1>DESIGN<br><span class="opacity-25">PORTFOLIO</span></h1>
+        </div>
+    </section>
+
+   <section id="about">
+        <span class="tag">00 / Profile</span>
+        <h2>About Me</h2>
+        <div class="about-bento-grid">
+            <div class="bento-card portrait-card parallax-layer" data-speed="30">
+                <div class="profile-img-container">
+                    <img src="images/IMG-20240818-WA0026.jpg" alt="Niel George" class="profile-pic">
+                    </div>
+            </div>
+        
+        <div class="bento-card bio-card parallax-layer" data-speed="50">
+            <span class="mono accent">Creative Philosophy</span>
+            <p class="mt-4">
+                I am Niel George, a designer focused on the intersection of **structural logic** and **visual synthesis**. 
+                My work explores how typography and iconography can define digital dimensions, bridging the gap between human intuition and neural architecture.
+            </p>
+        </div>
+
+        <div class="bento-card stats-card parallax-layer" data-speed="40">
+            <div class="stat-item">
+                <span class="mono">Location</span>
+                <p>Ahmedabad, IN</p>
+            </div>
+            <div class="stat-item">
+                <span class="mono">Focus</span>
+                <p>Iconography & Systems</p>
+            </div>
+            <div class="stat-item">
+                <span class="mono">Status</span>
+                <p>Unemployed</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="typography">
+        <span class="tag">01 /</span>
+        <h2>Typography</h2>
+        <div class="bento-grid-3">
+            <a href="AriesMoross.html" class="bento-card parallax-layer" data-speed="40">
+                <img src="images/Typography/Aries Moross_Page_1.png" class="work-img">
+                <div class="card-meta"><p class="card-title">Designer Booklet | ARIES MOROSS </p><span class="card-year">2026</span></div>
+            </a>
+            <a href="experimentaltypo.html" class="bento-card parallax-layer" data-speed="40">
+                <img src="images/Typography/Artboard 2.png" class="work-img">
+                <div class="card-meta"><p class="card-title">Experimental Typography</p><span class="card-year">2026</span></div>
+            </a>
+        </div>
+    </section>
+
+    <section id="illustrations">
+        <span class="tag">02 /</span>
+        <h2>Illustrations</h2>
+        <div class="bento-grid-3">
+            <a href="ChupaChups.html" class="bento-card parallax-layer" data-speed="60">
+                <img src="images/Illustrations/chupa chuups final ad.png" class="work-img">
+                <div class="card-meta"><p class="card-title">Chupa Chups Ad and Surface Packaging Design </p><span class="card-year">2026</span></div>
+            </a>
+            <a href="Illustrationscomic.html" class="bento-card parallax-layer" data-speed="30">
+                <img src="images/Illustrations/Books Cover page.png" class="work-img">
+                <div class="card-meta"><p class="card-title">Illustrations Comic Book </p><span class="card-year">2026</span></div>
+            </a>
+        </div>
+    </section>
+
+    <section id="image-making">
+    <span class="tag">03 /</span>
+    <h2>Creative Image Making</h2>
+    <div class="bento-grid-single">
+        <a href="#" class="bento-card parallax-layer" data-speed="40">
+            <img src="images/CIM/cpver page img.png" class="work-img" alt="Featured Image">
+            <div class="card-meta">
+                <p class="card-title">Luxury Perfumes Posters</p>
+                <span class="card-year">2026</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+    <section id="ai-design">
+        <span class="tag">04 /</span>
+        <h2>History Of Indian Art and Design</h2>
+        <div class="ai-centered-wrapper">
+            <a href="#" class="bento-card parallax-layer" data-speed="50">
+                <img src="images/History/cover page.png" class="work-img" alt="Featured Image">
+                <div class="card-meta"><p class="card-title">History Journal</p><span class="card-year">2026</span></div>
+            </a>
+
+    </section>
+
+   <section id="contact">
+    <span class="tag">04 / Connection</span>
+    <h2>Get In Touch</h2>
+    
+    <div class="footer-grid">
+        <div class="bento-card contact-form-card parallax-layer" data-speed="40">
+            <span class="mono accent mb-4 d-block">Project Inquiry</span>
+            <form id="contact-form" action="https://formspree.io/f/xgokzpqa" method="POST">
+                <div class="mb-3">
+                    <input type="text" name="name" class="custom-input" placeholder="Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="_replyto" class="custom-input" placeholder="Email Address" required>
+                </div>
+                <div class="mb-4">
+                    <textarea name="message" class="custom-input" rows="4" placeholder="How can I help you?" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="submit-btn mono">Send Message</button>
+                <p id="form-status" class="mono mt-3" style="font-size: 0.8rem;"></p>
+            </form>
+        </div>
+    </div>
+    </section>
+        <div class="social-links-container">
+            <a href="https://instagram.com" target="_blank" class="bento-card social-link parallax-layer" data-speed="70">
+                <span class="mono">Instagram</span>
+                <span class="arrow">↗</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="bento-card social-link parallax-layer" data-speed="90">
+                <span class="mono">LinkedIn</span>
+                <span class="arrow">↗</span>
+            </a>
+            <div class="bento-card copyright-card parallax-layer" data-speed="20">
+                <span class="mono">© 2026 NIEL GEORGE // ALL RIGHTS RESERVED</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
