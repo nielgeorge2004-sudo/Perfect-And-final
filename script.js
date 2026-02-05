@@ -46,7 +46,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 const starsGeo = new THREE.BufferGeometry();
-const starsCount = 1000;
+const starsCount = 3000;
 const posArray = new Float32Array(starsCount * 3);
 for(let i=0; i < starsCount * 3; i++) { 
     posArray[i] = (Math.random() - 0.5) * 100; 
