@@ -367,7 +367,7 @@ h2 {
 .profile-img-container {
     width: 100%;
     height: 100%;
-    min-height: 400px; /* Keeps the box height consistent */
+    min-height: 100px; /* Keeps the box height consistent */
     background: #0a0a0a;
     border-radius: 16px;
     display: flex;
@@ -378,11 +378,11 @@ h2 {
 }
 
 .profile-pic {
-    width: 100%;
-    height: 100%;
+    width: 700px;
+    height: auto;
     /* This is the MAGIC property: it crops the image to fill the space 
        without distorting the face/proportions */
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center; /* Centers the face if the photo is wide */
     display: block;
 }
@@ -461,7 +461,7 @@ h2 {
 /* 3. The Image Logic (Forces "Show All") */
 #project-grid .profile-img-container {
     width: 100%;
-    height: auto; /* Allows the box to be as tall as the image */
+    height: 100px; /* Allows the box to be as tall as the image */
     background: transparent;
     border-radius: 16px;
     overflow: hidden;
@@ -469,9 +469,9 @@ h2 {
 
 #project-grid .profile-pic {
     width: 100%;
-    height: auto; 
+    height: 100%; 
     display: block;
-    object-fit: contain; /* Ensures the whole image is visible */
+    object-fit: cover; /* Ensures the whole image is visible */
 }
 
 /* 4. The Bio Card Fix */
@@ -651,3 +651,23 @@ h2 {
     object-position: top center; 
 }
 
+
+
+
+/* Hide the default system cursor globally */
+* {
+    cursor: none !important;
+}
+
+/* Ensure your custom cursor div is still visible and follows the mouse */
+#custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent); /* Uses your portfolio's accent color */
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; /* Crucial: stops the circle from blocking clicks */
+    z-index: 9999;
+    mix-blend-mode: difference; /* Makes it visible against both light/dark areas */
+    transition: transform 0.1s ease-out;
+}

@@ -89,7 +89,21 @@ gsap.to(stars.rotation, {
 // Custom Cursor logic
 const cursor = document.getElementById('custom-cursor');
 window.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+    // Moves the circle to follow the mouse coordinates
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+// Optional: Add a 'hover' effect for your bento boxes
+document.querySelectorAll('.bento-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2.5)';
+        cursor.style.backgroundColor = 'white';
+    });
+    card.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        cursor.style.backgroundColor = 'var(--accent)';
+    });
 });
 
 // Animation Loop
