@@ -379,7 +379,7 @@ h2 {
 
 .profile-pic {
     width: 700px;
-    height: auto;
+    height: 100%;
     /* This is the MAGIC property: it crops the image to fill the space 
        without distorting the face/proportions */
     object-fit: contain; 
@@ -461,7 +461,7 @@ h2 {
 /* 3. The Image Logic (Forces "Show All") */
 #project-grid .profile-img-container {
     width: 100%;
-    height: 100px; /* Allows the box to be as tall as the image */
+    height: auto; /* Allows the box to be as tall as the image */
     background: transparent;
     border-radius: 16px;
     overflow: hidden;
@@ -499,45 +499,93 @@ h2 {
 
 
 /*experimental typo page adjustments*/
-/* Container logic to prevent image from expanding the box */
+/* 1. Grid Container */
 #project-details .about-bento-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 12-column system for precision */
+    grid-template-columns: repeat(12, 1fr);
     gap: 24px;
     align-items: start;
+    max-width: 1400px; /* Optional: keeps it from getting too wide on huge screens */
+    margin: 0 auto;
 }
 
+/* 2. Image Frame Fix */
 #project-details .profile-img-container {
-    width: 100%;
-    height: auto; /* Allows the box to be as tall as the image */
-    background: transparent;
+    width: 100%; /* CHANGED: Was 80%, now fills the grid column */
+    height: 800px; /* Adjusted: 1000px is often too tall; 800px is a standard poster size */
+    background: #0a0a0a; /* Dark background to hide any loading glitches */
     border-radius: 16px;
     overflow: hidden;
+    border: 1px solid var(--border);
 }
 
+/* 3. Image Fix */
 #project-details .profile-pic {
-    width: 100%;
+    width: 100%; /* CHANGED: Was 80%, now fills the container */
     height: 100%;
-    /* This makes the image fit the 500px box perfectly without stretching */
+    
+    /* CHANGED: 'cover' removes black bars and fills the box completely */
     object-fit: cover; 
-    object-position: center;
+    object-position: center; /* Keeps the main subject centered */
     display: block;
+}
+
+/* 4. Optional: Fix for "The Brief" card to match */
+#project-details .bio-card {
+    height: 100%;
+    min-height: 400px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     #project-details .about-bento-grid {
-        grid-template-columns: 1fr; /* Stacks vertically on mobile */
+        grid-template-columns: 1fr; /* Stack vertically */
     }
 
     #project-details .bento-card {
-        grid-column: span 1 !important; /* Forces full width on small screens */
+        grid-column: span 1 !important; /* Force full width */
     }
 
     #project-details .profile-img-container {
-        height: 400px; /* Slightly shorter for mobile screens */
+        height: 500px; /* Shorter height for phones */
     }
 }
+
+/* Video Frame Styling (Matches your .profile-img-container) */
+#project-details .video-container {
+    width: 100%;
+    height: 800px; /* Same tall height as your images */
+    background: #0a0a0a;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+/* Video Element Styling */
+#project-details .project-video {
+    width: 100%;
+    height: 100%;
+    /* 'object-fit: contain' ensures the video fits within the box without cropping */
+    object-fit: contain; 
+    object-position: center;
+    display: block;
+}
+
+/* Mobile Adjustment for Video */
+@media (max-width: 992px) {
+    #project-details .video-container {
+        height: 500px; /* Shorter on mobile */
+    }
+}
+
+
+
+
 
 .bento-card, .parallax-layer, .profile-img-container {
     /* Forces GPU rendering for smoother motion */
@@ -670,4 +718,199 @@ h2 {
     z-index: 9999;
     mix-blend-mode: difference; /* Makes it visible against both light/dark areas */
     transition: transform 0.1s ease-out;
+}
+
+
+
+/* 1. The Container: Strict 2-Column Grid */
+#project-perfume .about-bento-grid {
+    display: grid !important;
+    /* This forces exactly two equal columns, no matter what */
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. The Box/Wrapper */
+#project-perfume .project-wrapper,
+#project-perfume .bento-card-link {
+    width: 100%; /* Fills the grid column completely */
+    display: block;
+}
+
+/* 3. The Image Frame: Fixed Height */
+#project-perfume .image-frame, 
+#project-perfume .profile-img-container {
+    width: 100%;
+    /* This restores the tall poster look */
+    height: 850px; 
+    
+    background: #0a0a0a;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+/* 4. The Image: Cover Fill */
+#project-perfume .work-img, 
+#project-perfume .profile-pic {
+    width: 100%;
+    height: 100%;
+    /* Prevents the 'strip' distortion */
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Mobile Safety: Stacks them on phones so they don't become tiny strips */
+@media (max-width: 768px) {
+    #project-perfume .about-bento-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    #project-perfume .image-frame {
+        height: 500px;
+    }
+}
+
+
+/* Center-aligned section header */
+.project-section-centered {
+    text-align: center;
+    width: 100%;
+    padding: 80px 0;
+}
+
+.project-section-centered .tag {
+    display: block;
+    margin-bottom: 12px;
+    opacity: 0.6;
+}
+
+.project-section-centered .section-title {
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* The Grid/Flex Container */
+.large-bento-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Individual Project Wrapper */
+.large-bento-grid .project-wrapper {
+    flex: 1;
+    max-width: 600px; /* Restores the large size */
+    min-width: 350px;
+}
+
+.large-bento-grid .work-img-wrapper {
+    height: 750px; /* Vertical height to match previous posters */
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.large-bento-grid .work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Removes black borders and stretching */
+    object-position: center;
+}
+
+/* Centered Metadata */
+.large-bento-grid .card-meta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    text-align: left; /* Keeps text logic inside the centered wrapper */
+}
+
+
+
+
+/* --- Centered Projects Row Styling --- */
+
+/* --- Shared Container Styles (Keep from previous steps) --- */
+.centered-project-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.project-wrapper.centered-text {
+    width: 40%;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- NEW STYLES --- */
+
+/* 1. The Clickable Link Container */
+.bento-card-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit; /* Ensures text color matches your theme */
+}
+
+/* 2. The Image Frame (Where height and borders go now) */
+.image-frame {
+    width: 100%;
+    /* Adjust height as needed, e.g., 750px or 900px */
+    height: 750px; 
+    
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden; /* Cuts off the image at the corners */
+    background-color: #0a0a0a;
+    margin-bottom: 15px; /* Adds space between image and text */
+}
+
+/* The Image itself */
+.image-frame .work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* 3. The Metadata below the image */
+.meta-data-below {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; /* Adds slight padding on left and right */
+    text-align: left; /* Resets text align so it's not centered like the heading */
+}
+
+.meta-data-below .card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.meta-data-below .card-year {
+    opacity: 0.6;
+    font-family: 'monospace', sans-serif; /* Assuming you use a mono font for years */
 }
