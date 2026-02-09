@@ -444,18 +444,26 @@ h2 {
     align-items: start;
 }
 
-/* 2. Responsive Rules (Tablets and Mobile) */
 @media (max-width: 992px) {
+    
+    /* 1. RESET THE GRID to a Single Column */
     #project-grid .about-bento-grid {
-        grid-template-columns: 1fr; /* All boxes stack on top of each other */
+        display: grid;
+        grid-template-columns: 1fr; /* Creates one single column */
+        gap: 20px; /* Reduces the gap for smaller screens */
+        padding: 0 15px; /* Adds safety padding on left/right */
     }
 
-    #project-grid .bento-card {
-        grid-column: span 1 !important; /* Forces cards to full width */
-        margin-bottom: 10px;
+    /* 2. FORCE ALL CARDS TO FULL WIDTH */
+    #project-grid .bento-card,
+    #project-grid .bio-card,
+    #project-grid .portrait-card,
+    #project-grid .video-card {
+        grid-column: 1 / -1 !important; /* Spans from the first line to the last */
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
-
 
 
 /* 3. The Image Logic (Forces "Show All") */
@@ -525,7 +533,7 @@ h2 {
     height: 100%;
     
     /* CHANGED: 'cover' removes black bars and fills the box completely */
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center; /* Keeps the main subject centered */
     display: block;
 }
