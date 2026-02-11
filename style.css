@@ -292,7 +292,7 @@ h2 {
 .profile-img-container {
     width: 100%;
     height: 100%;
-    min-height: 400px;
+    min-height: 1000px;
     background: #0a0a0a;
     border-radius: 16px;
     display: flex;
@@ -321,14 +321,15 @@ h2 {
 .stats-card {
     display: flex;
     /* Changed to row so status items sit side-by-side in the bottom box */
-    flex-direction: row; 
+    flex-direction: row-; 
     justify-content: space-between;
     align-items: center;
     /* Explicitly set to bottom right */
     grid-column: 2;
     grid-row: 2;
-    padding: 1.5rem !important;
-    gap: 40px;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+    gap: 10px;
 }
 
 
@@ -338,7 +339,7 @@ h2 {
 
 .stat-item p {
     font-size: 0.95rem;
-    margin-top: 5px;
+    margin-top: px;
     color: var(--accent);
     margin-bottom: 0;
 }
@@ -390,6 +391,7 @@ h2 {
     #project-details .profile-img-container,
     #project-details .video-container {
         height: 400px !important; /* Perfect square-ish size for mobile scrolling */
+        width: auto;
     }
 
     /* 2. Text Adjustments */
@@ -966,4 +968,129 @@ h2 {
 .meta-data-below .card-year {
     opacity: 0.6;
     font-family: 'monospace', sans-serif; /* Assuming you use a mono font for years */
+}
+
+
+
+
+/* --- Illustrations Section Styling --- */
+
+#illustrations .about-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px; /* Signature gap for bento layout */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#illustrations .bento-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    /* Strict 1px border style from your previous projects */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#illustrations .profile-img-container {
+    width: 100%;
+    height: 750px; /* Locked height for portrait rectangles */
+    overflow: hidden;
+}
+
+#illustrations .profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevents distortion */
+    display: block;
+}
+
+#illustrations .bio-card {
+    padding: 50px;
+    justify-content: center;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    #illustrations .about-bento-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    #illustrations .bento-card {
+        grid-column: span 1 !important;
+        margin-bottom: 15px;
+    }
+
+    #illustrations .profile-img-container {
+        height: 500px; /* Tablet reset */
+    }
+}
+
+
+/* --- HISTORY JOURNAL SPECIFIC STYLES --- */
+
+.history-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Signature 12-column grid */
+    gap: 24px; /* Strict gap from previous iterations */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.history-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* THE STICKY 1PX BORDER STYLE */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Portrait Rectangle Containers */
+.history-img-frame {
+    width: 100%;
+    height: 500px; /* Locked height for the vertical journal look */
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.history-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crucial for portrait rectangle scaling */
+    display: block;
+}
+
+/* Text Card (The Brief) */
+.history-bio-card {
+    padding: 45px;
+    justify-content: center;
+    text-align: left; /* Maintains left-aligned hierarchy */
+}
+
+.history-bio-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1100px) {
+    .history-bento-grid {
+        grid-template-columns: 1fr; /* Stacks vertically for tablet/mobile */
+    }
+    
+    .history-card {
+        grid-column: 1 / -1 !important;
+        margin-bottom: 10px;
+    }
+    
+    .history-img-frame {
+        height: 500px !important; /* Mobile height reset */
+    }
 }
