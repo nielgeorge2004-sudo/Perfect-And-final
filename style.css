@@ -316,6 +316,7 @@ h2 {
     line-height: 1.6;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .stats-card {
@@ -342,6 +343,7 @@ h2 {
     margin-top: px;
     color: var(--accent);
     margin-bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* Responsive Fix for Tablets and Mobile */
