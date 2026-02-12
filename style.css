@@ -783,8 +783,9 @@ h2 {
 #project-perfume .about-bento-grid {
     display: grid !important;
     /* This forces exactly two equal columns, no matter what */
-    grid-template-columns: 1fr 1fr; 
-    gap: 40px;
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 30px;
+    align-items: end;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -796,6 +797,8 @@ h2 {
 #project-perfume .bento-card-link {
     width: 100%; /* Fills the grid column completely */
     display: block;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* 3. The Image Frame: Fixed Height */
